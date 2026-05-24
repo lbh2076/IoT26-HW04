@@ -1,0 +1,21 @@
+templates/main.html
+
+<!DOCTYPE html>
+<head>
+   <title>RPi Web Server</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+   <h1>RPi Web Server</h1>
+   {% for pin in pins %}
+   <h2>{{ pins[pin].name }}
+   {% if pins[pin].state == true %}
+      is currently <strong>on</strong></h2>
+      <a href="/{{pin}}/off" class="btn btn-default">Turn off</a>
+   {% else %}
+      is currently <strong>off</strong></h2>
+      <a href="/{{pin}}/on" class="btn btn-primary">Turn on</a>
+   {% endif %}
+   {% endfor %}
+</body>
+</html>
